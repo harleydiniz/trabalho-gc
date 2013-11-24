@@ -11,8 +11,15 @@
 		</fileset>
 	</path>
 
+	
 	<taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
 
+	<javac srcdir="src/" destdir="${classes.dir}" debug="true" includeantruntime="false">
+	  <classpath>
+	    <path id="org.junit" location="/Users/harleydiniz/git/trabalho-gc/trabalho-gc/libs/junit-4.11.jar" />
+	  </classpath>
+	</javac>
+	
 	<target name="init">
 		<mkdir dir="${classes.dir}" />
 		<mkdir dir="${instrumented.dir}" />
@@ -46,7 +53,7 @@
 				source line containing a reference to log4j, for the
 				purposes of coverage reporting.
 			-->
-			<ignore regex="org.apache.log4j.*" />
+			<ignore regex="org.apache.log4j.*"/>
 
 			<fileset dir="${classes.dir}">
 				<!--
